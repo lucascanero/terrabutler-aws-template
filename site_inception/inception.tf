@@ -1,6 +1,6 @@
 module "backends" {
 
-  source = "bitbucket.org/asolidodev/my_inception.git?ref=use-official-modules"
+  source = "bitbucket.org/asolidodev/my_inception.git?ref=bump-s3-bucket-module"
 
   for_each = var.include_inception_project ? toset(concat(var.inception_projects, ["inception"])) : toset(var.inception_projects)
 
