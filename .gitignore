@@ -1,0 +1,5 @@
+# ignore backups of remote states
+*.tfstate.backup
+
+# ignore .terraform directories
+*/.terraform/*
