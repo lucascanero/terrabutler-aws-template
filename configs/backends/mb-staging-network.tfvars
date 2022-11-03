@@ -1,0 +1,5 @@
+region         = "eu-central-1"
+profile        = "montblu-development"
+key            = "staging-network.tfstate"
+bucket         = "mb-staging-site-network-tfstate"
+dynamodb_table = "mb_staging_site_network_tfstatelock"
