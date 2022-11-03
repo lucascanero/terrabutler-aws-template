@@ -6,6 +6,10 @@ environments:
     region: eu-west-1
   permanent:
     - staging
+  temporary:
+    secrets:
+      firebase_credentials: DUMMY
+      mail_password: DUMMY
 general:
   organization: mb
   secrets_key_id: alias/secrets
