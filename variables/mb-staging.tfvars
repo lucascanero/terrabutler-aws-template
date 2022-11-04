@@ -1,4 +1,4 @@
 provider_region  = "eu-central-1"
-provider_profile = "montblu-development"
+provider_profile = "example-development"
 environment      = "staging"
-domain           = "montblu.eu" 
+domain           = "example.com" 

@@ -1,8 +1,8 @@
 environments:
   default:
-    domain: montblu.eu
+    domain: example.com
     name: staging
-    profile_name: mb-staging
+    profile_name: example-staging
     region: eu-central-1
   permanent:
     - staging
@@ -11,7 +11,7 @@ environments:
       firebase_credentials: DUMMY
       mail_password: DUMMY
 general:
-  organization: mb
+  organization: example-org
   secrets_key_id: alias/secrets
 sites:
   ordered:
