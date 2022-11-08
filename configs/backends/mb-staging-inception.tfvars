@@ -1,5 +1,0 @@
-region         = "eu-central-1"
-profile        = "montblu-development"
-key            = "staging-inception.tfstate"
-bucket         = "mb-staging-site-inception-tfstate"
-dynamodb_table = "mb_staging_site_inception_tfstatelock"

@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 1"
 
   # comment the following when initially preparing the very first envs
-  backend "s3" {}
+  #backend "s3" {}
 
   required_providers {
     aws = {
