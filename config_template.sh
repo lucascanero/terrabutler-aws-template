@@ -6,7 +6,7 @@
 #
 #    -d <domain>              The domain of your project
 
-#    -e <enviroment_name>     The enviroment name of your project
+#    -e <environment_name>    The environment name of your project
 #
 while getopts d:e:p: flag
 do
