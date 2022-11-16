@@ -1,5 +1,0 @@
-region         = "eu-central-1"
-profile        = "example-development"
-key            = "staging-inception.tfstate"
-bucket         = "example-staging-site-inception-tfstate"
-dynamodb_table = "example_staging_site_inception_tfstatelock"

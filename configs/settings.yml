@@ -1,17 +1,17 @@
 environments:
   default:
-    domain: example.com
-    name: staging
-    profile_name: example-staging
+    domain: domain_var
+    name: env_var
+    profile_name: project_var-env_var
     region: eu-central-1
   permanent:
-    - staging
+    - env_var
   temporary:
     secrets:
       firebase_credentials: DUMMY
       mail_password: DUMMY
 general:
-  organization: example-org
+  organization: project_var-org
   secrets_key_id: alias/secrets
 sites:
   ordered:
