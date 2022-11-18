@@ -1,5 +1,5 @@
 inception_projects = [
-  "network"
+  "network",
 ]
 
 # needed for staging (default) only:
