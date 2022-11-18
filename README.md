@@ -4,7 +4,7 @@
 
 <img src="https://raw.githubusercontent.com/angulo-solido/terrabutler/master/docs/assets/logo.png" align="center"/>
 
-# Terrabutler AWS Template
+# Terrabutler Project Template
 
 **A project template for AWS using Terrabutler**
 
