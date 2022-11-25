@@ -1,5 +1,5 @@
 region         = "eu-central-1"
-profile        = "project_var-development"
+profile        = "organization_var-development"
 key            = "env_var-inception.tfstate"
-bucket         = "project_var-env_var-site-inception-tfstate"
-dynamodb_table = "project_var_env_var_site_inception_tfstatelock"
+bucket         = "organization_var-env_var-site-inception-tfstate"
+dynamodb_table = "organization_var_env_var_site_inception_tfstatelock"
