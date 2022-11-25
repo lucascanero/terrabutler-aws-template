@@ -8,13 +8,13 @@
 
 #    -e <environment_name>    The environment name of your organization
 #
-while getopts d:e:p: flag
+while getopts d:e:o: flag
 do
     case "${flag}" in
         d) domain=${OPTARG};;
         e) env=${OPTARG};;
         o) organization=${OPTARG};;
-        *) echo "usage: $0 [-d <domain>] [-e <environment>] [ -p <organization>]" >&2
+        *) echo "usage: $0 [-d <domain>] [-e <environment>] [ -o <organization>]" >&2
     esac
 done
 # Rename configs/backends/*.tfvars
