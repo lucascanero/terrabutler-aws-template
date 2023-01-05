@@ -3,10 +3,9 @@
 #   ./config_template [FLAG] [STRING]
 #FLAGS:
 #    -o <organization_name>   The name for your organization
-#
 #    -d <domain>              The domain of your organization
-
 #    -e <environment_name>    The environment name of your organization
+#    -r <region>              The region to be used
 #
 while getopts d:e:o:r: flag; do
     case "${flag}" in
