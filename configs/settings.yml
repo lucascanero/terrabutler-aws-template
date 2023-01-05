@@ -2,8 +2,8 @@ environments:
   default:
     domain: domain_var
     name: env_var
-    profile_name: organization-env_var
-    region: eu-central-1
+    profile_name: organization_var-env_var
+    region: region_var
   permanent:
     - env_var
   temporary:
@@ -11,7 +11,7 @@ environments:
       firebase_credentials: DUMMY
       mail_password: DUMMY
 general:
-  organization: organization_var-org
+  organization: organization_var
   secrets_key_id: alias/secrets
 sites:
   ordered:

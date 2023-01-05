@@ -1,4 +1,4 @@
-provider_region  = "eu-central-1"
-provider_profile = "organization_var-development"
+provider_region  = "region_var"
+provider_profile = "organization_var-env_var"
 environment      = "env_var"
-domain           = "domain_var" 
+domain           = "domain_var"
