@@ -1,15 +1,13 @@
 module "backends" {
 
-  source = "bitbucket.org/asolidodev/my_inception.git?use-official-modules"
+  source = "bitbucket.org/asolidodev/my_inception.git?ref=2.0.0"
 
   for_each = var.include_inception_project ? toset(concat(var.inception_projects, ["inception"])) : toset(var.inception_projects)
 
-  my_inception_organization          = var.organization
-  my_inception_environment           = var.environment
-  my_inception_domain                = "site"
-  my_inception_project               = each.key
-  my_inception_enable_versioning     = var.enable_versioning
-  my_inception_disable_force_destroy = var.disable_force_destroy
+  name        = each.key
+  name_prefix = local.resource_prefix
+  profile     = var.provider_profile
+  region      = var.provider_region
 }
 
 resource "local_file" "backend_configs" {
