@@ -3,7 +3,7 @@ environments:
     domain: domain_var
     name: env_var
     profile_name: organization_var-env_var
-    region: eu-central-1
+    region: region_var
   permanent:
     - env_var
   temporary:

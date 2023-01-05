@@ -1,4 +1,4 @@
-region         = "eu-central-1"
+region         = "region_var"
 profile        = "organization_var-development"
 key            = "env_var-inception.tfstate"
 bucket         = "organization_var-env_var-site-inception-tfstate"
