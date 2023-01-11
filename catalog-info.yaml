@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terrabutler-aws-template
+  annotations:
+    github.com/project-slug: lucascanero/terrabutler-aws-template
+spec:
+  type: other
+  lifecycle: unknown
