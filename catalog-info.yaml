@@ -6,4 +6,5 @@ metadata:
     github.com/project-slug: lucascanero/terrabutler-aws-template
 spec:
   type: other
+  owner: lucascanero
   lifecycle: unknown
