@@ -1,19 +1,17 @@
 environments:
   default:
-    domain: domain_var
-    name: env_var
-    profile_name: organization_var-env_var
-    region: region_var
+    domain: ${{values.domain_var}}
+    name: ${{values.environment_var}}
+    profile_name: ${{values.organization_var}}-${{values.environment_var}}
+    region: ${{values.region_var}}
   permanent:
-    - env_var
+    - ${{values.environment_var}}
   temporary:
     secrets:
       firebase_credentials: DUMMY
       mail_password: DUMMY
 general:
-  organization: organization_var
+  organization: ${{values.organization_var}}
   secrets_key_id: alias/secrets
 sites:
   ordered:
-    - inception
-    - network
