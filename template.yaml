@@ -5,7 +5,7 @@ metadata:
   title: Terrabutler AWS Template
   description: A terrabutler template to start your project
 spec:
-  owner: backstage
+  owner: backstage/techdocs-core
   type: service
 
   # these are the steps which are rendered in the frontend with the form input
