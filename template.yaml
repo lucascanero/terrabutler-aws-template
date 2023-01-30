@@ -95,7 +95,7 @@ spec:
           domain_var: ${{ parameters.domain_var }}
     - id: fetch-docs
       name: Fetch Docs
-      action: fetch:plain
+      action: fetch:template
       input:
         targetPath: ./community
         url: https://github.com/backstage/community/tree/main/backstage-community-sessions
