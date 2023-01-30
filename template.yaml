@@ -56,14 +56,13 @@ parameters:
         type: string
         description: The name used to define your organization
       environment_var:
-        title: Environment 
+        title: Environment
         type: string
-        description: The environment for terraform and terrabutler. E.g. stage, prod, test
+        description: E.g. stage, prod, test
       domain_var:
         title: Domain
         type: string
         description: The domain of your project E.g. domain.com
-        
 steps:
   - id: fetch-base
     name: Fetch Template
