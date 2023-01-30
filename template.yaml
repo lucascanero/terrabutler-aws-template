@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: bitbucket-demo
-  title: Test Bitbucket RepoUrlPicker template
-  description: scaffolder v1beta3 template demo publishing to bitbucket
+  name: terrabutler-template
+  title: Terrabutler Template
+  description: A Terrabutler template to deploy projects with terraform
 spec:
   owner: backstage/techdocs-core
   type: service
@@ -51,9 +51,6 @@ parameters:
         title: Provider Region
         type: string
         description: The region configuration for the provider. E.g. eu-west1
-        ui:autofocus: true
-        ui:options:
-          rows: 5
       organization_var:
         title: Organization Name
         type: string
@@ -76,9 +73,16 @@ steps:
       values:
         name: ${{ parameters.name }}
         owner: ${{ parameters.owner }}
-        
-
-        
+  - id: fetch-project
+    name: Fetch Project Files
+    action: fetch:plain
+    input:
+      url: .
+      values:
+        region_var: ${{ parameters.region_var }}
+        organization_var: ${{ parameters.organization_var }}
+        environment_var: ${{ parameters.environment_var }}
+        domain_var: ${{ parameters.domain_var }}
   - id: fetch-docs
     name: Fetch Docs
     action: fetch:plain
