@@ -40,7 +40,7 @@ parameters:
         ui:options:
           catalogFilter:
             kind: Group
-   - title: Required Variables
+  - title: Required Variables
     required:
       - region_var
       - organization_var
