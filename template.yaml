@@ -93,12 +93,6 @@ spec:
           organization_var: ${{ parameters.organization_var }}
           environment_var: ${{ parameters.environment_var }}
           domain_var: ${{ parameters.domain_var }}
-    - id: fetch-docs
-      name: Fetch Docs
-      action: fetch:plain
-      input:
-        targetPath: ./community
-        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
     - id: publish
       name: Publish
       action: publish:github
