@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: terrabutler-template
-  title: Terrabutler Template
-  description: A Terrabutler Template template for deploying projects in terrafom.
+  name: bitbucket-demo
+  title: Test Bitbucket RepoUrlPicker template
+  description: scaffolder v1beta3 template demo publishing to bitbucket
 spec:
   owner: backstage/techdocs-core
   type: service
