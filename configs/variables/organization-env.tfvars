@@ -1,4 +1,4 @@
-provider_region  = "region_var"
-provider_profile = "organization_var-env_var"
-environment      = "env_var"
-domain           = "domain_var"
+provider_region  = "${{values.region_var | dump}}"
+provider_profile = "${{values.organization_var | dump}}"
+environment      = "${{values.environment_var | dump}}"
+domain           = "${{values.domain_var | dump}}"
