@@ -86,13 +86,13 @@ spec:
     - id: fetch-project
       name: Fetch Project Files
       action: fetch:plain
-     input:
-       url: ./
-       values:
-         region_var: ${{ parameters.region_var }}
-         organization_var: ${{ parameters.organization_var }}
-         environment_var: ${{ parameters.environment_var }}
-         domain_var: ${{ parameters.domain_var }}
+      input:
+        url: ./
+        values:
+          region_var: ${{ parameters.region_var }}
+          organization_var: ${{ parameters.organization_var }}
+          environment_var: ${{ parameters.environment_var }}
+          domain_var: ${{ parameters.domain_var }}
     - id: fetch-docs
       name: Fetch Docs
       action: fetch:plain
