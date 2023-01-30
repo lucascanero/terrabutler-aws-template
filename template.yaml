@@ -51,7 +51,29 @@ spec:
           ui:options:
             catalogFilter:
               kind: Group
-
+    - title: Required Variables
+      required:
+        - region_var
+        - organization_var
+        - environment_var
+        - domain_var
+      properties:
+        region_var:
+          title: Provider Region
+          type: string
+          description: The region configuration for the provider. E.g. eu-west1
+        organization_var:
+          title: Organization Name
+          type: string
+          description: The name used to define your organization
+        environment_var:
+          title: Environment
+          type: string
+          description: E.g. stage, prod, test
+        domain_var:
+          title: Domain
+          type: string
+          description: The domain of your project E.g. domain.com
   steps:
     - id: fetch-base
       name: Fetch Base
