@@ -85,7 +85,7 @@ spec:
           owner: ${{ parameters.owner }}
     - id: fetch-project
       name: Fetch Project Files
-      action: fetch:plain
+      action: fetch:template
       input:
         url: ./
         values:
@@ -95,7 +95,7 @@ spec:
           domain_var: ${{ parameters.domain_var }}
     - id: fetch-docs
       name: Fetch Docs
-      action: fetch:template
+      action: fetch:plain
       input:
         targetPath: ./community
         url: https://github.com/backstage/community/tree/main/backstage-community-sessions
