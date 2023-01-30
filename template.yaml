@@ -77,7 +77,7 @@ steps:
     name: Fetch Project Files
     action: fetch:plain
     input:
-      url: ./template
+      url: ./
       values:
         region_var: ${{ parameters.region_var }}
         organization_var: ${{ parameters.organization_var }}
