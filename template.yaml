@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: terrabutler-demo
-  title: Test template
-  description: test template
+  name: terrabutler-template
+  title: Terrabutler Template for AWS
+  description: A terrabutler template for deploy AWS based projects
 spec:
   owner: backstage/techdocs-core
   type: service
