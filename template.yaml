@@ -1,3 +1,13 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: terrabutler-template
+  title: Terrabutler Template
+  description: A Terrabutler Template template for deploying projects in terrafom.
+spec:
+  owner: backstage/techdocs-core
+  type: service
+
 parameters:
   - title: Choose a location
     required:
