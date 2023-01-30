@@ -59,24 +59,14 @@ parameters:
         title: Organization Name
         type: string
         description: The name used to define your organization
-        ui:autofocus: true
-        ui:options:
-          rows: 5 
       environment_var:
         title: Environment 
         type: string
         description: The environment for terraform and terrabutler. E.g. stage, prod, test
-        ui:autofocus: true
-        ui:options:
-          rows: 5
       domain_var:
         title: Domain
         type: string
         description: The domain of your project E.g. domain.com
-        ui:autofocus: true
-        ui:options:
-          rows: 5
-      
       
         
 steps:
