@@ -1,5 +1,5 @@
-region         = "region_var"
-profile        = "organization_var-env_var"
-key            = "env_var-inception.tfstate"
-bucket         = "organization_var-env_var-site-inception-tfstate"
-dynamodb_table = "organization_var_env_var_site_inception_tfstatelock"
+region         = ${{values.region_var | dump}}
+profile        = "${{values.organization_var}}-${{values.environment_var}}"
+key            = "${{values.environment_var}}-inception.tfstate"
+bucket         = "${{values.organization_var}}-${{values.environment_var}}-site-inception-tfstate"
+dynamodb_table = "${{values.organization_var}}_${{values.environment_var}}_site_inception_tfstatelock"
