@@ -1,85 +1,112 @@
-apiVersion: scaffolder.backstage.io/v1beta3
-kind: Template
-metadata:
-  name: terrabutler-aws-template
-  title: Terrabutler AWS Template
-  description: A terrabutler template to start your project
-spec:
-  owner: backstage/techdocs-core
-  type: service
-
-  parameters:
-    - title: Choose a location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
-            # The rest of these options are optional.
-            # You can read more at: https://backstage.io/docs/reference/plugin-scaffolder.repourlpickerfieldextension
-            # allowedOwners:
-            #   - WORKSPACE1
-            #   - WORKSPACE2
-            # allowedProjects:
-            #   - PROJECT1
-            #   - PROJECT2
-            # allowedRepos:
-            #   - REPO1
-            #   - REPO2
-    - title: Fill in some steps
-      required:
-        - name
-        - owner
-      properties:
-        name:
-          title: Name
-          type: string
-          description: Unique name of the component
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        owner:
-          title: Owner
-          type: string
-          description: Owner of the component
-          ui:field: OwnerPicker
-          ui:options:
-            catalogFilter:
-              kind: Group
-  # here's the steps that are executed in series in the scaffolder backend
-  steps:
-    - id: fetch-base
-      name: Fetch Base
-      action: fetch:template
-      input:
-        url: ./template
-        values:
-          name: ${{ parameters.name }}
-          owner: ${{ parameters.owner }}
-
-    - id: fetch-docs
-      name: Fetch Docs
-      action: fetch:plain
-      input:
-        targetPath: ./community
-        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
-
-    - id: publish
-      name: Publish
-      action: publish:github
-      input:
-        allowedHosts: ['github.com']
-        description: This is ${{ parameters.name }}
-        repoUrl: ${{ parameters.repoUrl }}
-
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
-        catalogInfoPath: '/catalog-info.yaml'
+parameters:
+  - title: Choose a location
+    required:
+      - repoUrl
+    properties:
+      repoUrl:
+        title: Repository Location
+        type: string
+        ui:field: RepoUrlPicker
+        ui:options:
+          allowedHosts:
+            - github.com
+  - title: Fill in some steps
+    required:
+      - name
+      - owner
+    properties:
+      name:
+        title: Name
+        type: string
+        description: Unique name of the component
+        ui:autofocus: true
+        ui:options:
+          rows: 5
+      owner:
+        title: Component Owner
+        type: string
+        description: Owner of the component
+        ui:field: OwnerPicker
+        ui:options:
+          catalogFilter:
+            kind: Group
+            
+  - title: Required Variables
+    required:
+      - region_var
+      - organization_var
+      - environment
+      - domain
+    properties:
+      region_var:
+        title: Provider Region
+        type: string
+        description: The region configuration for the provider. E.g. eu-west1
+        ui:autofocus: true
+        ui:options:
+          rows: 5
+      organization_var:
+        title: Organization Name
+        type: string
+        description: The name used to define your organization
+        ui:autofocus: true
+        ui:options:
+          rows: 5 
+      environment:
+        title: Environment 
+        type: string
+        description: The environment for terraform and terrabutler. E.g. stage, prod, test
+        ui:autofocus: true
+        ui:options:
+          rows: 5
+      domain:
+        title: Domain
+        type: string
+        description: The domain of your project E.g. domain.com
+        ui:autofocus: true
+        ui:options:
+          rows: 5
+      
+      
+        
+steps:
+  - id: fetch-base
+    name: Fetch Template
+    action: fetch:template
+    input:
+      url: ./template
+      values:
+        name: ${{ parameters.name }}
+        owner: ${{ parameters.owner }}
+        
+  - id: fetch-project
+    name: Fetch Project Files
+    action: fetch:project
+    input:
+      url: .
+      values:
+        region_var: ${{ parameters.region_var }}
+        organization_var: ${{ parameters.organization_var }}
+        environment: ${{ parameters.environment }}
+        domain: ${{ parameters.domain }}
+        
+  - id: fetch-docs
+    name: Fetch Docs
+    action: fetch:plain
+    input:
+      targetPath: ./community
+      url: https://github.com/backstage/community/tree/main/backstage-community-sessions
+  - id: publish
+    name: Publish
+    action: publish:github
+    input:
+      allowedHosts:
+        - github.com
+      description: This is ${{ parameters.name }}
+      repoUrl: ${{ parameters.repoUrl }}
+  - id: register
+    name: Register
+    action: catalog:register
+    input:
+      repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+      catalogInfoPath: /catalog-info.yaml
