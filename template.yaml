@@ -35,8 +35,8 @@ parameters:
     required:
       - region_var
       - organization_var
-      - environment
-      - domain
+      - environment_var
+      - domain_var
     properties:
       region_var:
         title: Provider Region
@@ -52,14 +52,14 @@ parameters:
         ui:autofocus: true
         ui:options:
           rows: 5 
-      environment:
+      environment_var:
         title: Environment 
         type: string
         description: The environment for terraform and terrabutler. E.g. stage, prod, test
         ui:autofocus: true
         ui:options:
           rows: 5
-      domain:
+      domain_var:
         title: Domain
         type: string
         description: The domain of your project E.g. domain.com
@@ -87,8 +87,8 @@ steps:
       values:
         region_var: ${{ parameters.region_var }}
         organization_var: ${{ parameters.organization_var }}
-        environment: ${{ parameters.environment }}
-        domain: ${{ parameters.domain }}
+        environment_var: ${{ parameters.environment_var }}
+        domain_var: ${{ parameters.domain_var }}
         
   - id: fetch-docs
     name: Fetch Docs
