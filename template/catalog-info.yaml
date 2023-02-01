@@ -3,6 +3,6 @@ kind: Component
 metadata:
   name: ${{values.name | dump}}
 spec:
-  type: repository
+  type: Base Component
   lifecycle: experimental
   owner: ${{values.owner | dump}}
