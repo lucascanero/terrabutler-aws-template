@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: terrabutler-template
   title: Terrabutler Template for AWS
-  description: A terrabutler template for deploy AWS based projects
+  description: A terrabutler template for deploy AWS backend based projects
 spec:
   owner: backstage/techdocs-core
   type: service
