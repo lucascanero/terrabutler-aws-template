@@ -23,10 +23,10 @@ mv configs/variables/organization-env-inception.tfvars configs/variables/"$organ
 mv configs/variables/organization-env.tfvars configs/variables/"$organization"-"$env".tfvars
 
 # Replace strings with the variables
-find configs/ -type f -exec sed -i "s/region_var/$region/" {} +
-find configs/ -type f -exec sed -i "s/domain_var/$domain/" {} +
-find configs/ -type f -exec sed -i "s/env_var/$env/" {} +
-find configs/ -type f -exec sed -i "s/organization_var/$organization/" {} +
+find configs/ -type f -exec sed -i "s/${{values.region_var}}/$region/" {} +
+find configs/ -type f -exec sed -i "s/${{values.domain_var}}/$domain/" {} +
+find configs/ -type f -exec sed -i "s/${{values.environment_var}}/$env/" {} +
+find configs/ -type f -exec sed -i "s/${{values.organization_var}}/$organization/" {} +
 
 echo "Template Configuration replaced!"
 exit

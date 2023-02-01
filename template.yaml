@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: terrabutler-aws-template
-  title: Terrabutler AWS Template
-  description: A terrabutler template to start your project
+  name: terrabutler-template
+  title: Terrabutler Template for AWS
+  description: A terrabutler template for deploy AWS backend based projects
 spec:
   owner: backstage/techdocs-core
   type: service
@@ -51,7 +51,29 @@ spec:
           ui:options:
             catalogFilter:
               kind: Group
-  # here's the steps that are executed in series in the scaffolder backend
+    - title: Required Variables
+      required:
+        - region_var
+        - organization_var
+        - environment_var
+        - domain_var
+      properties:
+        region_var:
+          title: Provider Region
+          type: string
+          description: The region configuration for the provider. E.g. eu-west1
+        organization_var:
+          title: Organization Name
+          type: string
+          description: The name used to define your organization
+        environment_var:
+          title: Environment
+          type: string
+          description: E.g. stage, prod, test
+        domain_var:
+          title: Domain
+          type: string
+          description: The domain of your project E.g. domain.com
   steps:
     - id: fetch-base
       name: Fetch Base
@@ -61,19 +83,20 @@ spec:
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
-
-    - id: fetch-docs
-      name: Fetch Docs
-      action: fetch:plain
+    - id: fetch-project
+      name: Fetch Project Files
+      action: fetch:template
       input:
-        targetPath: ./community
-        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
-
+        url: ./
+        values:
+          region_var: ${{ parameters.region_var }}
+          organization_var: ${{ parameters.organization_var }}
+          environment_var: ${{ parameters.environment_var }}
+          domain_var: ${{ parameters.domain_var }}
     - id: publish
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
@@ -83,3 +106,12 @@ spec:
       input:
         repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps['publish'].output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
+
