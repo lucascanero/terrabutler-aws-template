@@ -80,6 +80,7 @@ spec:
       action: fetch:template
       input:
         url: ./template
+        targetPath: ./template
         values:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
