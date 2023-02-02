@@ -105,7 +105,7 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        repoContentsUrl: ${{ parameters.repoUrl }}/blob/main
         catalogInfoPath: '/template/catalog-info.yaml'
 
   output:
