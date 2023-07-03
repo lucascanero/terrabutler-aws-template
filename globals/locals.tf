@@ -6,9 +6,7 @@ locals {
     "-",
     [
       var.organization,
-      var.environment,
-      local.domain_tld,
-      terraform.workspace
+      var.environment
     ],
   )
 
